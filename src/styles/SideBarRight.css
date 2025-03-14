@@ -1,0 +1,16 @@
+.right-wrapper{
+    flex: 1;
+    background: none;
+    width: 100%;
+    padding-right: 200px;
+}
+
+ .team-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    margin: 5px;
+    
+ }
+
