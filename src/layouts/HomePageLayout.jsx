@@ -9,7 +9,7 @@
 import HomeNavBar from "../components/sections/homeNavBar/HomeNavBar";
 import PostCard from "../components/cards/postCard/PostCard";
 import "./HomePageLayout.css";
-import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem.jsx";
+import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem";
 
 const HomePageLayout = () => {
   // const [sideBarOpen, setSideBarOpen] = useState(false);
