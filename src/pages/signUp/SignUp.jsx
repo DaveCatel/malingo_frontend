@@ -4,18 +4,22 @@ import "./SignUp.css";
 
 const SignUp = () => {
   return (
-    <div className="signUp-container">
-      <div className="signUp">
-        <div className="signUp-image">
+    <div className="signup-container">
+      <div className="signup">
+        <div className="signup-image">
           <img
             src="https://cdn.pixabay.com/photo/2021/11/22/20/32/nature-6817376_640.jpg"
             alt=""
           />
         </div>
-        <div className="signUpDetails-container">
+        <div className="signup-details-container">
           <form action="">
-            <h3>Register to Experience Companionship</h3>
+            <h3>Register</h3>
             
+           
+            
+            <div className="signup-input">
+
             <div className="name-input">
               <label htmlFor="name">User name</label>
               <input
@@ -24,15 +28,13 @@ const SignUp = () => {
                 placeholder="Enter your name here"
               />
             </div>
-            
-            <div className="signUp-input">
+
               <label htmlFor="email">Email</label>
               <input
                 type="email"
                 id="email"
                 placeholder="Enter your email here"
               />
-            </div>
             <div className="password-input">
               <label htmlFor="password">Password</label>
               <input
@@ -50,14 +52,15 @@ const SignUp = () => {
                 placeholder="Confirm password here"
               />
             </div>
+            </div>
 
-            <button className="register-btn">sign up</button>
-            <div className="loginlink-container">
+            <button className="signup-btn">Sign up</button>
+            <div className="login-link-container">
               <p className="login-link">
                 Already have an account{" "}
-                <Link>
+                <Link to="/login">
                   <span>Login</span>
-                </Link>
+                </Link >
               </p>
             </div>
           </form>

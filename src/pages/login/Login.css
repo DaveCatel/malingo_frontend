@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, #411c01, #f83509);
+  background: #171923;
 }
 
 .login {
@@ -94,7 +94,7 @@
 }
 
 .login-btn {
-    background: linear-gradient(90deg, #411c01, #f83509);
+    background: #171923;
     width: 60%;
     color: white;
     font-weight: 500;
@@ -112,10 +112,7 @@
     width: 100%;
 }
 .signup-link span{
-    color: #f83509;
-    font-weight: 700;
-    font-size: 20px;
-    text-decoration: underline;
+    color: #171923;
 }
 
 @media screen and (max-width: 768px) {

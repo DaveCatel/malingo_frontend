@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
@@ -34,9 +34,9 @@ const Login = () => {
             <button className="login-btn">Login</button>
             <div className="signup-link-container">
               <p className="signup-link">
-                Already have an account{" "}
-                <Link>
-                  <span>Login</span>
+                Don't have an account?{"   "}
+                <Link to='/signup'>
+                  <span>Sign up</span>
                 </Link>
               </p>
             </div>

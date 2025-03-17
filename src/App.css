@@ -4,3 +4,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-primary: #343747;
+    --bg-secondary: #171923;
+    --bg-tertiary: #212330;
+    --btn-color: #4361ee;
+    background-color: var(--bg-secondary);
+    overflow: hidden;
+}
