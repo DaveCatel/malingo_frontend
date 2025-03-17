@@ -5,10 +5,11 @@
 // import UserProfile from "../pages/userProfile/UserProfile";
 // import MyActivityStatus from "../pages/myActivityStatus/MyActivityStatus";
 // import PostActvity from "../pages/postActivity/PostActvity";
-import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem";
+// import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem";
 import HomeNavBar from "../components/sections/homeNavBar/HomeNavBar";
 import PostCard from "../components/cards/postCard/PostCard";
 import "./HomePageLayout.css";
+import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem";
 
 const HomePageLayout = () => {
   // const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -57,13 +58,11 @@ const HomePageLayout = () => {
           <HomeNavBar />
           <div className="main-home-section">
             <div className="activity-container">
-              <PostCard/>
-              <PostCard/>
-              <PostCard/>
+              <PostCard />
+              <PostCard />
+              <PostCard />
             </div>
-            <div className="activity-list">
-              list activity
-            </div>
+            <div className="activity-list">list activity</div>
           </div>
         </div>
       </div>
