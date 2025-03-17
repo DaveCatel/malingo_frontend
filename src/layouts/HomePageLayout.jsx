@@ -1,33 +1,33 @@
-import { useState } from "react";
-import { CiMenuBurger } from "react-icons/ci";
-import Home from "../pages/home/Home";
-import MyActivity from "../pages/myActivity/MyActivity";
-import UserProfile from "../pages/userProfile/UserProfile";
-import MyActivityStatus from "../pages/myActivityStatus/MyActivityStatus";
-import PostActvity from "../pages/postActivity/PostActvity";
+// import { useState } from "react";
+// import { CiMenuBurger } from "react-icons/ci";
+// import Home from "../pages/home/Home";
+// import MyActivity from "../pages/myActivity/MyActivity";
+// import UserProfile from "../pages/userProfile/UserProfile";
+// import MyActivityStatus from "../pages/myActivityStatus/MyActivityStatus";
+// import PostActvity from "../pages/postActivity/PostActvity";
 import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem";
 import HomeNavBar from "../components/sections/homeNavBar/HomeNavBar";
 import PostCard from "../components/cards/postCard/PostCard";
 import "./HomePageLayout.css";
 
 const HomePageLayout = () => {
-  const [sideBarOpen, setSideBarOpen] = useState(false);
-  const [activePage, setActivePage] = useState("home");
+  // const [sideBarOpen, setSideBarOpen] = useState(false);
+  // const [activePage, setActivePage] = useState("home");
 
-  const renderPage = () => {
-    switch (activePage) {
-      case "home":
-        return <Home />;
-      case "myActivity":
-        return <MyActivity />;
-      case "profile":
-        return <UserProfile />;
-      case "activityStatus":
-        return <MyActivityStatus />;
-      case "postActivity":
-        return <PostActvity />;
-    }
-  };
+  // const renderPage = () => {
+  //   switch (activePage) {
+  //     case "home":
+  //       return <Home />;
+  //     case "myActivity":
+  //       return <MyActivity />;
+  //     case "profile":
+  //       return <UserProfile />;
+  //     case "activityStatus":
+  //       return <MyActivityStatus />;
+  //     case "postActivity":
+  //       return <PostActvity />;
+  //   }
+  // };
   const logo = null;
   return (
     <div className="home-layout-container">
