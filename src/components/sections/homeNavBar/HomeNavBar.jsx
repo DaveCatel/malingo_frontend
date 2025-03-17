@@ -1,4 +1,3 @@
-import React from "react";
 import "./HomeNavBar.css";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";

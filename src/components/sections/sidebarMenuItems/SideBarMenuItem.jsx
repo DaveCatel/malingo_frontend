@@ -1,4 +1,3 @@
-import React from 'react'
 import { RiHome4Line } from "react-icons/ri";
 import './SideBarMenuItem.css'
 
