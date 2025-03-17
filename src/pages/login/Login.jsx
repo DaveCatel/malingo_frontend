@@ -31,11 +31,13 @@ const Login = () => {
                 placeholder="Enter your password here"
               />
             </div>
-            <button className="login-btn">Login</button>
+            <Link to='/'>
+              <button className="login-btn">Login</button>
+            </Link>
             <div className="signup-link-container">
               <p className="signup-link">
                 Don't have an account?{"   "}
-                <Link to='/signup'>
+                <Link to="/signup">
                   <span>Sign up</span>
                 </Link>
               </p>
