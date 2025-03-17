@@ -2,7 +2,7 @@ import React from 'react'
 import { RiHome4Line } from "react-icons/ri";
 import './SideBarMenuItem.css'
 
-const SideBarMenuItem = ({icon, title}) => {
+const SideBarMenuItem = () => {
   return (
     <div className='sidebar-items'>
       {/* {icon}
