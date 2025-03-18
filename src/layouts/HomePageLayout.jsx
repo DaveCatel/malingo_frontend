@@ -10,6 +10,7 @@ import HomeNavBar from "../components/sections/homeNavBar/HomeNavBar";
 import PostCard from "../components/cards/postCard/PostCard";
 import "./HomePageLayout.css";
 import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem";
+import MyActivityData from "../components/cards/myactivitiesdata/MyActivityData";
 
 const HomePageLayout = () => {
   // const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -62,7 +63,22 @@ const HomePageLayout = () => {
               <PostCard />
               <PostCard />
             </div>
-            <div className="activity-list">list activity</div>
+            <div className="activity-list">
+              <div className="activity-list-accepted">
+                {Array(4)
+                  .fill()
+                  .map((_, index) => (
+                    <MyActivityData key={index} />
+                  ))}
+              </div>
+              <div className="activity-list-unapproved">
+              {Array(4)
+                  .fill()
+                  .map((_, index) => (
+                    <MyActivityData key={index} />
+                  ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
