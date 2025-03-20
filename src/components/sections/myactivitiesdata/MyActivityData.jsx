@@ -5,7 +5,7 @@ const MyActivityData = () => {
     <div className="my-activities-container">
       {acceptActivityImg ? (
 
-        <img src="" alt="my photo" className="accepted-activity-photo"/>
+        <img src={acceptActivityImg} alt="my photo" className="accepted-activity-photo"/>
       ):(
         <div></div>
       )}

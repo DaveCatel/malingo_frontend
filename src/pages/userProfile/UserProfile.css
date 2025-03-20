@@ -1,0 +1,150 @@
+.user-profile-main-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.user-profile-container-area {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.user-sidebar {
+  flex: 1;
+  background-color: aliceblue;
+  padding: 20px;
+  height: 100%;
+}
+
+.user-profile-area {
+  flex: 4;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-profile-area {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-nav-area {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-data {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.user-title-area {
+  height: 200px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: var(--bg-tertiary);
+}
+
+.title-profile-pic {
+  height: 80%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px 10px 0 0;
+  background-color: var(--bg-primary);
+}
+
+.user-profile-name {
+  display: block;
+  padding: 10px;
+  margin: 20px 50px;
+}
+
+.user-profile-name h1 {
+  font-weight: 500;
+  font-size: 30px;
+  color: white;
+  opacity: 0.8;
+}
+
+.user-profile-name h3 {
+  font-weight: 400;
+  font-size: 25px;
+  color: white;
+  opacity: 0.5;
+}
+
+.user-profile-pic {
+  height: 105px;
+  width: 105px;
+  margin: 50px;
+  border-radius: 50%;
+}
+
+.user-profile-pic img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-activity-info {
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+  display: flex;
+}
+
+.user-activity-area {
+  height: 100%;
+  width: 65%;
+  border-radius: 10px;
+  background-color: var(--bg-tertiary);
+}
+
+.user-activity-area h1 {
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+  color: white;
+  opacity: 0.8;
+}
+.user-info {
+  height: 100%;
+  width: 35%;
+  padding: 20px 20px 10px 7px;
+  border-radius: 10px;
+  background-color: var(--bg-tertiary);
+}
+
+.user-info h2 {
+  padding: 0 3px 10px 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+  color: white;
+  opacity: 0.8;
+}
+
+.user-data {
+  height: 60%;
+  max-width: 100px;
+  margin: 10px;
+  width: 10px;
+}

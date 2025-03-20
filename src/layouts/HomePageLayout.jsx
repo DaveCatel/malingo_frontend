@@ -10,9 +10,10 @@ import HomeNavBar from "../components/sections/homeNavBar/HomeNavBar";
 import PostCard from "../components/cards/postCard/PostCard";
 import "./HomePageLayout.css";
 import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem";
-import MyActivityData from "../components/cards/myactivitiesdata/MyActivityData";
+import MyActivityData from "../components/sections/myactivitiesdata/MyActivityData";
+import Home from "../pages/home/Home";
 
-const HomePageLayout = () => {
+const HomePageLayout = ({children}) => {
   // const [sideBarOpen, setSideBarOpen] = useState(false);
   // const [activePage, setActivePage] = useState("home");
 
@@ -56,30 +57,7 @@ const HomePageLayout = () => {
           </div>
         </div>
         <div className="main-container">
-          <HomeNavBar />
-          <div className="main-home-section">
-            <div className="activity-container">
-              <PostCard />
-              <PostCard />
-              <PostCard />
-            </div>
-            <div className="activity-list">
-              <div className="activity-list-accepted">
-                {Array(4)
-                  .fill()
-                  .map((_, index) => (
-                    <MyActivityData key={index} />
-                  ))}
-              </div>
-              <div className="activity-list-unapproved">
-              {Array(4)
-                  .fill()
-                  .map((_, index) => (
-                    <MyActivityData key={index} />
-                  ))}
-              </div>
-            </div>
-          </div>
+          <Home />
         </div>
       </div>
     </div>

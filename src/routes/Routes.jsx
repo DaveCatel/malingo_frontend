@@ -4,6 +4,7 @@ import SignUp from '../pages/signUp/SignUp'
 import HomePageLayout from '../layouts/HomePageLayout'
 import PostActvity from '../pages/postActivity/PostActvity'
 import UserProfile from '../pages/userProfile/UserProfile'
+import ActivityDetails from '../pages/activityDetails/ActivityDetails'
 
 
 const BasicRoute = () => {
@@ -15,6 +16,7 @@ const BasicRoute = () => {
         <Route path='/signup' element={<SignUp/>} />
         <Route path='/postactivity' element={<PostActvity/>} />
         <Route path='/Profile' element={<UserProfile/>} />
+        <Route path='details' element={<ActivityDetails/>}/>
     </Routes>
   )
 }

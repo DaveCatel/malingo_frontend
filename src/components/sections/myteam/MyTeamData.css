@@ -1,0 +1,25 @@
+.my-team-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 7px 5px;
+    margin: 5px;
+    gap: 8px;
+    width: 100%;
+    
+}
+
+.team-member-photo {
+    height: 45px;
+    width: 45px;
+    border: 3px solid #434557;
+    border-radius: 50%;
+}
+
+.my-team-container h3{
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    opacity: 0.8;
+}
