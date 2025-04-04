@@ -1,17 +1,22 @@
-import './MyActivityData.css'
-const MyActivityData = () => {
-  const acceptActivityImg = "https://cdn.pixabay.com/photo/2020/11/28/19/18/girl-5785590_640.jpg";
+import "./MyActivityData.css";
+
+const MyActivityData = ({ pendingActivities = [] }) => {
   return (
     <div className="my-activities-container">
-      {acceptActivityImg ? (
-
-        <img src={acceptActivityImg} alt="my photo" className="accepted-activity-photo"/>
-      ):(
-        <div></div>
+      {pendingActivities.length > 0 ? (
+        <ul>
+          {pendingActivities.map((activity) => (
+            <li key={activity.id}>
+              <img src={activity.activityPhoto} alt="Activity" />
+              <span>{activity.title}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No pending activities</p>
       )}
-      <h3>Morning Run</h3>
     </div>
-  )
-}
+  );
+};
 
-export default MyActivityData
+export default MyActivityData;

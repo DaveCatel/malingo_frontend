@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import "./HomeNavBar.css";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const HomeNavBar = () => {
   return (
@@ -12,9 +14,13 @@ const HomeNavBar = () => {
             <input type="search" placeholder="Search..." />
           </div>
         </form>
-        <div>
-          <IoIosNotificationsOutline color="white" size={30} />
-          <div className="home-nav-profile"></div>
+        <div className="nav-icons">
+          <div className="notification-icon">
+            <IoIosNotificationsOutline color="white" size={30} />
+          </div>
+          <Link to="/profile">
+            <div className="home-nav-profile"></div>
+          </Link>
         </div>
       </div>
     </div>

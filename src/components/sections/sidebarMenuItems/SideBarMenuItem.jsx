@@ -1,15 +1,15 @@
-import { RiHome4Line } from "react-icons/ri";
 import './SideBarMenuItem.css'
 
-const SideBarMenuItem = () => {
+const SideBarMenuItem = ({title, icon: Icon, onClick}) => {
+
+  
+
   return (
-    <div className='sidebar-items'>
-      {/* {icon}
-      {title} */}
-      <RiHome4Line color='white' size={24} />
-      <h3>Home</h3>
+    <div className='sidebar-items' onClick={onClick}>
+      <Icon color='white' size={24} />
+      <h3>{title}</h3>
     </div>
   )
 }
 
-export default SideBarMenuItem
+export default SideBarMenuItem;

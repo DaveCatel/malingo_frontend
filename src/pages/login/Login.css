@@ -65,6 +65,8 @@
 .login-details-container h3 {
   font-weight: 500;
   font-size: 20px;
+  opacity: 0.8;
+  color: var(--bg-tertiary);
 }
 
 .login-details-container .login-input {
@@ -90,12 +92,18 @@
 .login-input input:focus {
   outline: none;
   box-shadow: none;
+  opacity: 0.5;
   border-color: transparent;
 }
+.login-link{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
+}
 .login-btn {
     background: #171923;
-    width: 100%;
+    width: 70%;
     color: white;
     font-weight: 500;
     font-size: 16px;

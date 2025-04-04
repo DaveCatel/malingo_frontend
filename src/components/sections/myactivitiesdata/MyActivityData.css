@@ -3,9 +3,9 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding: 7px 5px;
-    margin: 5px;
-    gap: 8px;
+    padding: 5px;
+    margin: 2px;
+    gap: 10px;
     width: 100%;
     
 }

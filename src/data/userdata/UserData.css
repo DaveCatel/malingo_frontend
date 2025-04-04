@@ -21,3 +21,42 @@
     color: white;
     opacity: 0.7;
  }
+
+
+/* For tablets */
+@media (max-width: 1024px) {
+    .user-info-table table {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .label {
+        font-size: 15px;
+        padding: 2px;
+    }
+
+    .value {
+        font-size: 14px;
+        padding: 2px;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 1024px) {
+    .user-info-table {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .user-info-table table {
+        padding: 5px;
+        margin: 0;
+    }
+
+    .label, .value {
+        font-size: 14px;
+        padding: 5px;
+    }
+}

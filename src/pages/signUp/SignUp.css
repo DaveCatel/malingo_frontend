@@ -43,64 +43,45 @@
 
 .signup-details-container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: white;
     height: 100%;
     width: 60%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 30px;
+    padding: 5px 10px;
 }
 
-.signup-details-container h3 {
-    color: white;
-}
-
-.signup-details-container form {
+.signup-details-container form{
+    width: 80%;
+    gap: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
-    width: 80%;
+
 }
 
 .signup-details-container h3 {
     font-weight: 500;
     font-size: 20px;
-    opacity: 0.8;
+    opacity: 0.9;
+    text-align: center;
+    color: var(--bg-tertiary);
+
 }
 
-.signup-details-container .signup-input {
+.signup-link {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
-.signup-input label {
-    font-weight: 400;
-    font-size: 14px;
-    opacity: 0.8;
-}
-
-.signup-input input {
-    width: 100%;
-    padding: 10px 12px 0 20px;
-    margin: 5px 0;
-    border-radius: 10px;
-    background-color: rgba(176, 186, 195, 0.4);
-    opacity: 0.5;
-}
-
-.signup-input input:focus {
-    outline: none;
-    box-shadow: none;
-    border-color: transparent;
-}
 .signup-btn {
     background-color: #212330;
-    width: 60%;
+    width: 70%;
     color: white;
     font-weight: 500;
     font-size: 16px;

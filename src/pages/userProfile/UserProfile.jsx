@@ -3,13 +3,14 @@ import HomeNavBar from "../../components/sections/homeNavBar/HomeNavBar";
 import UserData from "../../data/userdata/UserData";
 import MyCreatedActivity from "../../data/mycreatedactivity/MyCreatedActivity";
 
-const UserProfile = () => {
+const UserProfile = ({onClick}) => {
+  console.log("on click event: ",onClick)
   const userProfileImage =
     "https://cdn.pixabay.com/photo/2022/03/06/07/58/man-7051040_1280.png";
   return (
-    <div className="user-profile-main-container">
+    <div className="user-profile-main-container" onclick={onclick}>
       <div className="user-profile-container-area">
-        <div className="user-sidebar">side bar</div>
+        {/* <div className="user-sidebar"></div> */}
         <div className="user-profile-area">
           <div className="user-nav-area">
             <div className="user-nav">
@@ -32,16 +33,20 @@ const UserProfile = () => {
                 </div>
               </div>
               <div className="user-activity-info">
-                <div className="user-activity-area">
-                  <h1>My Activities</h1>
-                  {Array(2).fill().map((_, index) => (
-                    <MyCreatedActivity key={index}/>
-                  ))}
-                </div>
-                <div className="user-info">
+                <div className="user-infos">
                   <h2>Information Summary</h2>
                   <div className="user-data">
                     <UserData />
+                  </div>
+                </div>
+                <div className="user-activity-area">
+                  <h1>My Activities</h1>
+                  <div className="my-activitivity-area-scroll">
+                    {Array(7)
+                      .fill()
+                      .map((_, index) => (
+                        <MyCreatedActivity key={index} />
+                      ))}
                   </div>
                 </div>
               </div>

@@ -1,52 +1,77 @@
-// import { useState } from "react";
-// import { CiMenuBurger } from "react-icons/ci";
-// import Home from "../pages/home/Home";
-// import MyActivity from "../pages/myActivity/MyActivity";
-// import UserProfile from "../pages/userProfile/UserProfile";
-// import MyActivityStatus from "../pages/myActivityStatus/MyActivityStatus";
-// import PostActvity from "../pages/postActivity/PostActvity";
-// import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem";
-import HomeNavBar from "../components/sections/homeNavBar/HomeNavBar";
-import PostCard from "../components/cards/postCard/PostCard";
+import { useState } from "react"; // This import was commented out
+import { RiHome4Line, RiSearchLine, RiNotification2Line, RiMailLine } from "react-icons/ri"; // This import was missing
 import "./HomePageLayout.css";
-import SideBarMenuItem from "../components/sections/SidebarMenuItems/SideBarMenuItem";
 import MyActivityData from "../components/sections/myactivitiesdata/MyActivityData";
 import Home from "../pages/home/Home";
+import UserProfile from "../pages/userProfile/UserProfile";
+import SideBarMenuItem from "../components/sections/Sidebarmenuitems/SideBarMenuItem";
+import ActivityDetails from "../pages/activityDetails/ActivityDetails";
+import PostActivity from "../pages/postActivity/PostActvity";
+import Notification from "../pages/notification/Notification";
 
 const HomePageLayout = ({children}) => {
-  // const [sideBarOpen, setSideBarOpen] = useState(false);
-  // const [activePage, setActivePage] = useState("home");
+  const [activePage, setActivePage] = useState("Home");
 
-  // const renderPage = () => {
-  //   switch (activePage) {
-  //     case "home":
-  //       return <Home />;
-  //     case "myActivity":
-  //       return <MyActivity />;
-  //     case "profile":
-  //       return <UserProfile />;
-  //     case "activityStatus":
-  //       return <MyActivityStatus />;
-  //     case "postActivity":
-  //       return <PostActvity />;
-  //   }
-  // };
+  const sidebarMenuItems = [
+    {
+      title: "Home",
+      icon: RiHome4Line
+    },
+    {
+      title: "profile",
+      icon: RiSearchLine
+    },
+    {
+      title: "Post Activity",
+      icon: RiSearchLine
+    },
+    {
+      title: "Activities Joined",
+      icon: RiNotification2Line
+    },
+    {
+      title: "Notification",
+      icon: RiNotification2Line
+    }
+  ];
+  
+  const handlePageChange = (page) => {
+    setActivePage(page);
+  };
+  
+  const renderPage = () => {
+    switch (activePage) {
+      case "Home":
+        return <Home />
+        case "profile":
+          return <UserProfile onClick={()=>handlePageChange("profile")} />
+        case "Post Activity":
+          return <PostActivity onClick={()=>handlePageChange("Post Activity")} />
+          case "Notification":
+            return <Notification onClick={()=>handlePageChange("Notification")} />
+      default:
+        return <Home />; // Default case
+    }
+  };
+
   const logo = null;
   return (
     <div className="home-layout-container">
-      {/* <CiMenuBurger /> */}
       <div className="layout-container">
         <div className="layout-sidebar">
-          <div>
-            <div className="logo">
-              {logo ? <img src={logo} alt="Logo" /> : <h1>Malingo</h1>}
-            </div>
-            {Array(4)
-              .fill()
-              .map((_, index) => (
-                <SideBarMenuItem key={index} />
-              ))}
+          <div className="logo">
+            {logo ? <img src={logo} alt="Logo" /> : <h1>Malingo</h1>}
           </div>
+          
+          {sidebarMenuItems.map((item, index) => (
+            <SideBarMenuItem 
+              key={index}
+              title={item.title}
+              icon={item.icon}
+              onClick={() => handlePageChange(item.title)}
+            />
+          ))}
+          
           <div className="logout-container">
             <h3>Welcome</h3>
             <div>
@@ -57,7 +82,9 @@ const HomePageLayout = ({children}) => {
           </div>
         </div>
         <div className="main-container">
-          <Home />
+          {
+          console.log("Page: ", renderPage)}
+          {renderPage()} {/* Function needs to be called with () */}
         </div>
       </div>
     </div>

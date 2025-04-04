@@ -1,0 +1,48 @@
+.notification-data-container {
+    height: 100px;
+    width: 100%;
+}
+
+.notification-crud{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--bg-tertiary);
+}
+
+.notification-title h2 {
+    font-weight: 500;
+    font-size: 15;
+    text-align: center;
+    color: white;
+}
+
+.notification-title p {
+    font-weight: 400;
+    font-size: 15px;
+    color: white;
+    opacity: 0.8;
+}
+
+.approve-decline {
+    width: 25%;
+    display: flex;
+    padding-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.approve-decline button {
+    font-weight: 500;
+    font-size: 17px;
+    color: white;
+}
+
+.approve-decline  .decline {
+    color: red;
+}

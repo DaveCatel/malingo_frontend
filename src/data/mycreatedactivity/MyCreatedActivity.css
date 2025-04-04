@@ -21,6 +21,8 @@
     padding: 5px;
 }
 
+
+
 .my-created-activity-pic {
     width: 100px;
     height: 80px;
@@ -99,4 +101,104 @@
     stroke-width: 5px;
     opacity: 0.8;
     cursor: pointer;
+}
+
+/* For tablets and smaller screens */
+@media (max-width: 1024px) {
+    .my-created-activity {
+        flex-direction: column; /* Stack elements */
+        height: auto;
+        padding: 15px;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .my-created-activity-info {
+        flex-direction: column; /* Stack image and title */
+        align-items: center;
+        text-align: center;
+    }
+
+    .my-created-activity-pic {
+        width: 80px;
+        height: 60px;
+    }
+
+    .my-created-activity-pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .my-created-activity-title {
+        margin: 5px 0;
+        padding: 5px;
+    }
+
+    .my-created-activity-title h3 {
+        font-size: 18px;
+    }
+
+    .my-created-activity-title p {
+        font-size: 15px;
+    }
+
+    .my-created-activity-date-crud {
+        flex-direction: row; /* Align date and buttons horizontally */
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .my-created-activity-crud {
+        width: auto;
+    }
+
+    .update, .delete {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .my-created-activity-container {
+        width: 100%;
+    }
+    .my-created-activity {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .my-created-activity-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .my-created-activity-pic {
+        width: 70px;
+        height: 50px;
+    }
+
+    .my-created-activity-title h3 {
+        font-size: 16px;
+    }
+
+    .my-created-activity-title p {
+        font-size: 14px;
+    }
+
+    .my-created-activity-date-crud {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .my-created-activity-crud {
+        width: 80px;
+    }
+
+    .update, .delete {
+        font-size: 14px;
+    }
 }
