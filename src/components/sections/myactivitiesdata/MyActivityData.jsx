@@ -7,7 +7,7 @@ const MyActivityData = ({ pendingActivities = [] }) => {
         <ul>
           {pendingActivities.map((activity) => (
             <li key={activity.id}>
-              <img src={activity.activityPhoto} alt="Activity" />
+              <img src={activity.ActivityPhoto} alt="Activity" />
               <span>{activity.title}</span>
             </li>
           ))}

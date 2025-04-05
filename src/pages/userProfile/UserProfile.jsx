@@ -42,7 +42,7 @@ const UserProfile = ({onClick}) => {
                 <div className="user-activity-area">
                   <h1>My Activities</h1>
                   <div className="my-activitivity-area-scroll">
-                    {Array(7)
+                    {Array(2)
                       .fill()
                       .map((_, index) => (
                         <MyCreatedActivity key={index} />

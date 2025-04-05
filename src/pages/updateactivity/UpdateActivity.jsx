@@ -1,91 +1,34 @@
 import { useState } from "react";
-import { RiImageAddLine, RiSendPlane2Line, RiMapPin2Line, RiLink, RiCalendar2Line, RiTeamLine } from "react-icons/ri";
-import "./PostActivity.css";
+import {
+  RiImageAddLine,
+  RiSendPlane2Line,
+  RiMapPin2Line,
+  RiLink,
+  RiCalendar2Line,
+  RiTeamLine
+} from "react-icons/ri";
+import "./UpdateActivity.css";
+import HomeNavBar from "../../components/sections/homeNavBar/HomeNavBar";
 
-const PostActivity = () => {
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [previewUrl, setPreviewUrl] = useState(null);
-  const [data, setEventData] = useState({
+const UpdateActivity = () => {
+  const [activityData, setActivityData] = useState({
     title: "",
-    ActivityPhoto: null,
+    ActivityPhoto: "",
     description: "",
-    location: "",
     link: "",
-    numberOfMembers: "",
-    time: "",
+    location: "",
+    numberOfMembers: 0,
+    time: ""
   });
 
-  const handleCreateActivity = async () => {
-    const url = "https://rrn24.techchantier.site/malingo/public/api/activity";
-    const token = localStorage.getItem("token");
-  
-    if (!token) {
-      setMessage("You need to log in first.");
-      return;
-    }
-  
-    if (!data.ActivityPhoto) {
-      setMessage("Please select an activity photo.");
-      return;
-    }
-    
-    const formattedTime = data.time.replace("T", " ") + ":00";
+  const [previewUrl, setPreviewUrl] = useState(null);
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    const formData = new FormData();
-    formData.append("title", data.title);
-    formData.append("ActivityPhoto", data.ActivityPhoto);
-    formData.append("description", data.description);
-    formData.append("location", data.location);
-    formData.append("link", data.link);
-    formData.append("numberOfMembers", data.numberOfMembers);
-    formData.append("time", formattedTime);
-  
-    try {
-      setLoading(true);
-      setMessage("");
-  
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
-  
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to create activity");
-      }
-  
-      const responseData = await response.json();
-      console.log("Activity successfully created: ", responseData);
-  
-      setEventData({
-        title: "",
-        ActivityPhoto: null,
-        description: "",
-        location: "",
-        link: "",
-        numberOfMembers: "",
-        time: "",
-      });
-      
-      setPreviewUrl(null);
-      setMessage("Activity created successfully!");
-    } catch (error) {
-      console.error("Error: ", error);
-      setMessage(error.message || "Failed to create activity. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setEventData((prevData) => ({
-      ...prevData,
+    setActivityData((prev) => ({
+      ...prev,
       [name]: value,
     }));
   };
@@ -93,12 +36,11 @@ const PostActivity = () => {
   const handlePhoto = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setEventData((prevData) => ({
-        ...prevData,
+      setActivityData((prev) => ({
+        ...prev,
         ActivityPhoto: file,
       }));
-      
-      // Create preview URL
+
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreviewUrl(reader.result);
@@ -107,36 +49,69 @@ const PostActivity = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const updateActivity = async (e) => {
     e.preventDefault();
-    handleCreateActivity();
+    setLoading(true);
+    setMessage("");
+
+    const token = localStorage.getItem("token");
+    const formData = new FormData();
+
+    for (const key in activityData) {
+      formData.append(key, activityData[key]);
+    }
+
+    try {
+      const response = await fetch('https://rrn24.techchantier.site/malingo/public/api/activity/4', {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json',
+        },
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || `Error: ${response.status}`);
+      }
+
+      setMessage("Activity updated successfully!");
+      console.log("Activity updated:", result);
+    } catch (error) {
+      console.error("Update error:", error);
+      setMessage(`Error: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="post-activity-container">
-      <div className="post-activity">
-        <div className="post-container">
-          <h2>Create an Activity</h2>
-          <p className="subtitle">Share a new activity with the community</p>
-          
+    <div className="Update-activity-container">
+        
+      <div className="Update-activity">
+        <HomeNavBar />
+        <div className="Update-container">
+          <h2>Update Activity</h2>
+          <p className="subtitle">Make changes to your activity</p>
+
           {message && (
             <div className={`message ${message.includes("successfully") ? "success" : "error"}`}>
               {message}
             </div>
           )}
-          
-          <form onSubmit={handleSubmit} encType="multipart/form-data">
-            <div className="post-activity-inputs">
+
+          <form onSubmit={updateActivity}>
+            <div className="Update-activity-inputs">
               <div className="form-group">
-                <label htmlFor="title">
-                  Title
-                </label>
+                <label htmlFor="title">Title</label>
                 <input
                   type="text"
                   id="title"
                   name="title"
-                  value={data.title}
-                  onChange={handleInputChange}
+                  value={activityData.title}
+                  onChange={handleChange}
                   required
                   placeholder="Enter activity title here"
                   className="form-control"
@@ -144,9 +119,7 @@ const PostActivity = () => {
               </div>
 
               <div className="form-group photo-upload">
-                <label htmlFor="ActivityPhoto">
-                  Activity Photo
-                </label>
+                <label htmlFor="ActivityPhoto">Activity Photo</label>
                 <div className="file-upload-container">
                   <input
                     type="file"
@@ -174,14 +147,12 @@ const PostActivity = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="description">
-                  Description
-                </label>
+                <label htmlFor="description">Description</label>
                 <textarea
                   name="description"
                   id="description"
-                  value={data.description}
-                  onChange={handleInputChange}
+                  value={activityData.description}
+                  onChange={handleChange}
                   required
                   placeholder="Describe your activity in detail..."
                   className="form-control text-area-input"
@@ -198,8 +169,8 @@ const PostActivity = () => {
                     type="text"
                     id="location"
                     name="location"
-                    value={data.location}
-                    onChange={handleInputChange}
+                    value={activityData.location}
+                    onChange={handleChange}
                     required
                     placeholder="Where will this happen?"
                     className="form-control"
@@ -213,8 +184,8 @@ const PostActivity = () => {
                     type="url"
                     id="link"
                     name="link"
-                    value={data.link}
-                    onChange={handleInputChange}
+                    value={activityData.link}
+                    onChange={handleChange}
                     required
                     placeholder="Link to discussion or chat"
                     className="form-control"
@@ -231,8 +202,8 @@ const PostActivity = () => {
                     type="number"
                     id="numberOfMembers"
                     name="numberOfMembers"
-                    value={data.numberOfMembers}
-                    onChange={handleInputChange}
+                    value={activityData.numberOfMembers}
+                    onChange={handleChange}
                     required
                     placeholder="How many can join?"
                     className="form-control"
@@ -248,8 +219,8 @@ const PostActivity = () => {
                     type="datetime-local"
                     id="time"
                     name="time"
-                    value={data.time}
-                    onChange={handleInputChange}
+                    value={activityData.time}
+                    onChange={handleChange}
                     required
                     className="form-control"
                   />
@@ -262,7 +233,7 @@ const PostActivity = () => {
                 <span className="loading-spinner"></span>
               ) : (
                 <>
-                  <RiSendPlane2Line className="button-icon" /> Create Activity
+                  <RiSendPlane2Line className="button-icon" /> Update activity
                 </>
               )}
             </button>
@@ -273,4 +244,4 @@ const PostActivity = () => {
   );
 };
 
-export default PostActivity;
+export default UpdateActivity;

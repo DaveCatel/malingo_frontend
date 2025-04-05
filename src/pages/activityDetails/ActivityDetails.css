@@ -1,6 +1,9 @@
 /* General Styling */
 .details {
     height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
 }
 
 .main-details-container {
@@ -8,42 +11,47 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
+/* Sidebar Styling */
 .sidebar-layouts {
     flex: 1;
-    background-color: aliceblue;
-    padding: 20px;
+    background-color: var(--bg-secondary);
+    padding: 24px;
     height: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    transition: all var(--transition-speed);
+    max-width: var(--sidebar-width-desktop);
 }
 
+/* Main Content Area */
 .details-area-container {
     flex: 4;
-    padding: 0 20px;
+    padding: 24px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    overflow-y: auto;
 }
 
 .details-area {
-    height: 100%;
-    width: 100%;
     display: flex;
     flex-direction: row;
-    padding-bottom: 20px; 
-    margin-bottom: 30px;
-    gap: 20px;
+    gap: 24px;
+    padding-bottom: 30px;
+    margin-bottom: 24px;
+    height: calc(100% - 50px);
 }
 
+/* Photo and Description Section */
 .photo-description-area {
     flex: 2;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-bottom: 20px;
-    gap: 10px;
+    gap: 16px;
 }
 
 .photo-details {
@@ -52,45 +60,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 12px;
     background-color: var(--bg-tertiary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform var(--transition-speed);
+}
+
+.photo-details:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .photo-details img {
-    max-width: 80%;
-    max-height: 100%;
-    border-radius: 3px;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 6px;
     object-fit: contain;
+    transition: all var(--transition-speed);
 }
 
 .description-details {
     height: 30%;
-    width: 90%;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: start;
-    border-radius: 10px;
-    margin: 25px;
-    padding: 10px;
-    color: white;
-    opacity: 0.7;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 12px;
+    background-color: var(--bg-secondary);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .description-details p {
-    font-weight: 400;
-    font-size: 15px;
-    color: white;
-    opacity: 0.7;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    opacity: 0.85;
 }
 
+/* Right Column - Profile and Details */
 .details-joined-area {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 24px;
     height: 100%;
-    gap: 10px;
-    border-radius: 10px;
 }
 
 .name-profile-pic-area {
@@ -98,122 +113,217 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: 12px;
     background-color: var(--bg-tertiary);
-    padding: 10px;
-}
-
-.details-profile-pic {
-    height: 50px;
-    width: 50px;
-    border: 3px solid #434557;
-    border-radius: 50%;
-    background-color: rgba(0, 255, 255, 0.116);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .profile-pic-and-name {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.details-profile-pic {
+    height: 60px;
+    width: 60px;
+    border: 3px solid var(--bg-secondary);
+    border-radius: 50%;
+    background-color: rgba(189, 147, 249, 0.1);
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .name-profile-pic-area img {
-    height: 45px;
-    width: 45px;
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
+    object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+.name-profile-pic-area img:hover {
+    transform: scale(1.1);
 }
 
 .name-profile-pic-area h3 {
-    font-weight: 500;
-    font-size: 16px;
-    color: white;
-    opacity: 0.8;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    opacity: 0.9;
 }
 
+/* Title and Details Section */
 .title-details-area {
     width: 100%;
     display: flex;
     flex-direction: column;
     padding: 10px 5px;
-    margin: 10px 0;
-    gap: 10px;
+    gap: 16px;
 }
 
 .title-details-area h3 {
-    font-weight: 500;
-    font-size: 20px;
-    color: white;
-    opacity: 0.8;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    opacity: 0.9;
     padding: 5px;
 }
 
 .title-details-area p {
-    font-weight: 400;
-    font-size: 15px;
-    color: white;
-    padding: 5px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
     opacity: 0.8;
+    padding: 5px;
 }
 
 .title-details-area button {
     width: 100%;
-    height: 40px;
-    font-weight: 500;
-    font-size: 15px;
-    opacity: 0.8;
-    color: white;
-    border: 2px solid #434557;
-    border-radius: 5px;
+    height: 46px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    border: 2px solid var(--bg-hover);
+    border-radius: 8px;
     background-color: transparent;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all var(--transition-speed);
+    padding: 0 20px;
+    margin-top: 8px;
 }
 
 .title-details-area button:hover {
-    background-color: #4c4e5846;
+    background-color: var(--btn-color);
+    border-color: var(--btn-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(89, 100, 224, 0.3);
 }
 
+.title-details-area button:active {
+    transform: translateY(0);
+}
+
+/* Joined Section */
 .joined-details-area {
     display: flex;
     flex-direction: column;
     height: 40%;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     background-color: var(--bg-tertiary);
-    padding: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    justify-content: center;
 }
 
 .joined-details-area h3 {
+    font-size: 16px;
     font-weight: 500;
-    font-size: 15px;
-    color: white;
-    opacity: 0.8;
+    color: var(--text-primary);
+    opacity: 0.85;
     text-align: center;
 }
 
 /* Responsive Design */
+@media (max-width: 992px) {
+    .details-area {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .photo-description-area, 
+    .details-joined-area {
+        width: 100%;
+    }
+    
+    .photo-details,
+    .description-details {
+        height: auto;
+        min-height: 300px;
+    }
+    
+    .name-profile-pic-area,
+    .joined-details-area {
+        height: auto;
+        min-height: 200px;
+    }
+}
+
 @media (max-width: 768px) {
     .main-details-container {
         flex-direction: column;
     }
-    .details-area {
-        flex-direction: column;
-    }
-    .photo-description-area {
+    
+    .sidebar-layouts {
+        max-width: 100%;
         width: 100%;
-        /* order: 2; */
-    }
-    .photo-details {
         height: auto;
-        width: 100%;
+        min-height: var(--sidebar-width-mobile);
+        padding: 15px;
     }
-    .description-details {
-        width: 100%;
-        /* order: 3; */
+    
+    .details-area-container {
+        padding: 15px;
     }
-    .details-joined-area {
-        width: 100%;
-        /* order: 1; */
+    
+    .photo-details {
+        min-height: 250px;
+    }
+    
+    .title-details-area h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .details-area-container {
+        padding: 10px;
+    }
+    
+    .details-area {
+        gap: 16px;
+        padding-bottom: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .photo-details {
+        min-height: 200px;
+    }
+    
+    .description-details,
+    .name-profile-pic-area,
+    .joined-details-area {
+        padding: 15px;
+    }
+    
+    .profile-pic-and-name {
+        gap: 12px;
+    }
+    
+    .details-profile-pic {
+        height: 50px;
+        width: 50px;
+    }
+    
+    .title-details-area {
+        gap: 12px;
+    }
+    
+    .title-details-area h3 {
+        font-size: 18px;
+    }
+    
+    .title-details-area p,
+    .description-details p {
+        font-size: 14px;
+    }
+    
+    .title-details-area button {
+        height: 40px;
+        font-size: 14px;
     }
 }

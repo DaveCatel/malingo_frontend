@@ -6,58 +6,66 @@ import useApi from "../../useApi";
 
 const SignUp = () => {
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     password_confirmation: "",
   });
-
+  
   const { request, loading, error } = useApi(
-    "https://rrn24.techchantier.site/malingo/public/api/register", "POST", null, {}, false
+    "https://rrn24.techchantier.site/malingo/public/api/register", 
+    "POST", 
+    null, 
+    {}, 
+    false
   );
-
+  
   const [message, setMessage] = useState("");
-
+  const [messageType, setMessageType] = useState(""); // "error" or "success"
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // ✅ Validate fields before making request
+    
+    // Validate fields before making request
     if (!formData.name || !formData.email || !formData.password || !formData.password_confirmation) {
       setMessage("⚠️ All fields are required!");
+      setMessageType("error");
       return;
     }
-
+    
     if (formData.password !== formData.password_confirmation) {
       setMessage("⚠️ Passwords do not match!");
+      setMessageType("error");
       return;
     }
-
-    // ✅ Send JSON instead of FormData (if API expects JSON)
+    
+    // Send JSON instead of FormData
     const submissionData = {
       name: formData.name,
       email: formData.email,
       password: formData.password,
-      password_confirmation: formData.password_confirmation, // Some APIs expect "password_confirmation"
+      password_confirmation: formData.password_confirmation,
     };
-
-    await request("POST", submissionData, {
+    
+    const response = await request("POST", submissionData, {
       headers: { "Content-Type": "application/json" },
     });
-
-    setMessage("✅ Successfully registered!");
-
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
+    
+    if (!error) {
+      setMessage("✅ Successfully registered!");
+      setMessageType("success");
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
+    }
   };
-
+  
   return (
     <div className="signup-container">
       <div className="signup">
@@ -68,13 +76,21 @@ const SignUp = () => {
           />
         </div>
         <div className="signup-details-container">
-          <h3>Register</h3>
-          {error && <p style={{ color: "red" }}>Error: {error}</p>}
+          <h3>Create Account</h3>
+          
           <form onSubmit={handleSubmit}>
             <SignupInput formData={formData} onInputChange={handleChange} />
+            
             <button type="submit" disabled={loading} className="signup-btn">
-              {loading ? "" : "Sign up"}
+              {loading ? "Processing..." : "Sign Up"}
             </button>
+            
+            {message && (
+              <div className={`message-container message-${messageType}`}>
+                {message}
+              </div>
+            )}
+            
             <div className="login-link-container">
               <p className="login-link">
                 Already have an account?{" "}
@@ -83,7 +99,6 @@ const SignUp = () => {
                 </Link>
               </p>
             </div>
-            {message && <p>{message}</p>}
           </form>
         </div>
       </div>

@@ -1,5 +1,5 @@
 
-  .post-activity-container {
+.Update-activity-container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -7,20 +7,20 @@
     padding: 20px;
   }
   
-  .post-activity {
+  .Update-activity {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
   }
   
-  .post-container {
+  .Update-container {
     background-color: var(--bg-primary);
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
     padding: 32px;
   }
   
-  .post-container h2 {
+  .Update-container h2 {
     color: var(--text-primary);
     font-size: 24px;
     font-weight: 600;
@@ -54,7 +54,7 @@
   }
   
   /* Form Styling */
-  .post-activity-inputs {
+  .Update-activity-inputs {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -252,7 +252,7 @@
   
   /* Responsive Adjustments */
   @media (max-width: 768px) {
-    .post-container {
+    .Update-container {
       padding: 24px;
     }
     
@@ -262,11 +262,11 @@
   }
   
   @media (max-width: 480px) {
-    .post-container {
+    .Update-container {
       padding: 16px;
     }
     
-    .post-activity-container {
+    .Update-activity-container {
       padding: 12px;
     }
     

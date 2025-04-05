@@ -7,6 +7,8 @@ import UserProfile from '../pages/userProfile/UserProfile'
 import ActivityDetails from '../pages/activityDetails/ActivityDetails'
 import Notification from '../pages/notification/Notification'
 import JoinRequestsPage from '../pages/joinrequest/JoinRequestsPage'
+import LandingPage from '../pages/landingpage/LandingPage'
+import UpdateActivity from '../pages/updateactivity/UpdateActivity'
 
 
 const BasicRoute = () => {
@@ -19,7 +21,9 @@ const BasicRoute = () => {
         <Route path='/postactivity' element={<PostActvity/>} />
         <Route path='/profile' element={<UserProfile/>} />
         <Route path='/details/:id' element={<ActivityDetails/>}/>
-        <Route path='/request/:activityId' element={<JoinRequestsPage />} />
+        <Route path='/landing' element={<LandingPage/>}/>
+        <Route path='/notify' element={<Notification /> } />
+        <Route path='/update' element={<UpdateActivity /> } />
     </Routes>
   )
 }

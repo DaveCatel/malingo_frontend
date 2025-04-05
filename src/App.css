@@ -4,11 +4,25 @@
     box-sizing: border-box;
 }
 
-:root {
+/* :root {
     --bg-primary: #343747;
     --bg-secondary: #171923;
     --bg-tertiary: #212330;
     --btn-color: #4361ee;
     background-color: var(--bg-secondary);
     overflow: hidden;
-}
+} */
+:root {
+    --bg-primary: #282a36;
+    --bg-secondary: #343747;
+    --bg-tertiary: #171923;
+    --btn-color: #5964e0;
+    --btn-hover: #4755c3;
+    --text-primary: #ffff;
+    --text-secondary: #ffff;
+    --border-color: #e5e7eb;
+    --error-color: #e53e3e;
+    --success-color: #38a169;
+    --transition-speed: 0.3s;
+  }
+  
